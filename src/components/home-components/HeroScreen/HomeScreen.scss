@@ -1,0 +1,28 @@
+.home-img-wrap{
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-hero {
+  width: 100vw;
+  height: 100vh;
+  opacity: .55;
+  max-height: 100vh;
+  position: absolute;
+  top: 0;
+  object-fit: cover;
+}
+
+.home-text-wrap {
+  font-size: 22px;
+  color: white;
+  z-index: 2;
+  text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  letter-spacing: 4px;
+}

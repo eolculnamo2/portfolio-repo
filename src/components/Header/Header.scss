@@ -1,0 +1,29 @@
+.header-wrap {
+  background-color: #20222A;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 9001;
+}
+
+.header-links {
+  margin: 0;
+  padding: 1.5em;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
+  margin-left: 59%;
+  box-sizing: border-box;
+  list-style-type: none;
+  text-transform: uppercase;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+  li {
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

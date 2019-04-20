@@ -1,0 +1,49 @@
+.about-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 4em;
+  margin-bottom: 3em;
+}
+
+.about-img {
+  width: 400px;
+  border: 4px solid #999;
+}
+
+.about-js-life {
+  text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin-top: 0;
+  color: #333;
+}
+
+.about-text-wrap {
+  max-width: 500px;
+  margin-left: 3em;
+  color: #333;
+}
+
+.about-all-caps-h {
+  margin-top: 5em;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #333;
+}
+
+.about-skills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1px solid #999;
+  padding-top: 1em;
+
+  .about-skill {
+    font-size: 1.25em;
+    font-weight: 600;
+    margin-right: 1em;
+    margin-bottom: .5em;
+    color: #333;
+  }
+}
