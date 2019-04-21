@@ -1,0 +1,54 @@
+.project-wrap {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5em 4em;
+  width: 80%;
+  margin: auto;
+  background-color: white;
+  color: #333;
+  margin-top: 2em;
+}
+
+.project-title {
+  margin-top: 0;
+}
+
+.project-flex-technologies {
+  display: flex;
+  justify-content: flex-start;
+
+  h3  {
+    margin-right: 1em;
+  }
+}
+
+.project-right-wrap {
+  width: 55%;
+}
+
+.project-description-text {
+  font-size: 1.15em;
+}
+
+.project-button-wrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5em;
+
+  button {
+    width: 200px;
+    margin-left: 1em;
+    padding: .5em;
+    background-color: white;
+    font-size: 1.15em;
+    cursor: pointer;
+    border: 2px solid #45B8D8;
+    color: #45B8D8;
+    outline: none;
+
+    &:hover {
+      background-color: #45B8D8;
+      color: white;
+    }
+  }
+}

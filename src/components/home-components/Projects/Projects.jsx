@@ -9,9 +9,23 @@ const initialState = {
       title: 'HEMA Site',
       technologies: ['React', 'SCSS', 'NodeJS', 'MongoDB'],
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean finibus magna vel tortor porttitor ultricies. Pellentesque nunc ipsum.',
-      githubLink: 'www.github.com',
+      githubLink: 'https://www.github.com',
+      projectLink: 'https://www.sword-point.com',
+    },
+    {
+      title: 'HEMA Site',
+      technologies: ['React', 'SCSS', 'NodeJS', 'MongoDB'],
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean finibus magna vel tortor porttitor ultricies. Pellentesque nunc ipsum.',
+      githubLink: 'https://www.github.com',
       projectLink: 'www.sword-point.com',
-    }
+    },
+    {
+      title: 'HEMA Site',
+      technologies: ['React', 'SCSS', 'NodeJS', 'MongoDB'],
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean finibus magna vel tortor porttitor ultricies. Pellentesque nunc ipsum.',
+      githubLink: 'https://www.github.com',
+      projectLink: 'www.sword-point.com',
+    },
   ]
 };
 
@@ -19,7 +33,8 @@ function Projects() {
   const [state, changeState] = useState(initialState);
   return (
     <div className="projects-wrap">
-      {state.projects.map( x => <Project project={x} /> )}
+      <h1 className="home-section-heading home-section-heading--white">Projects</h1>
+      {state.projects.map( x => <Project project={x} key={x.githubLink} /> )}
     </div>
   )
 }
