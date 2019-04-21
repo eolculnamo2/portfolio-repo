@@ -29,10 +29,12 @@ const initialState = {
   ]
 };
 
-function Projects() {
+function Projects(props) {
   const [state, changeState] = useState(initialState);
+
+  const {projectsRef} = props;
   return (
-    <div className="projects-wrap">
+    <div className="projects-wrap" ref={projectsRef}>
       <h1 className="home-section-heading home-section-heading--white">Projects</h1>
       {state.projects.map( x => <Project project={x} key={x.githubLink} /> )}
     </div>

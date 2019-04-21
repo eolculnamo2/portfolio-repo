@@ -3,13 +3,21 @@ import React from 'react';
 import './Home.scss';
 import { AboutMe, HomeScreen, Projects, Contact } from '../../components/home-components/';
 
-function Home() {
+// for header scrollTo function
+
+function Home(props) {
+  const {
+    homeRef,
+    aboutMeRef,
+    projectsRef,
+    contactRef,
+  } = props;
   return(
     <>
-      <HomeScreen />
-      <AboutMe />
-      <Projects />
-      <Contact />
+      <HomeScreen homeRef={homeRef} />
+      <AboutMe aboutMeRef={aboutMeRef} />
+      <Projects projectsRef={projectsRef} />
+      <Contact contactRef={contactRef} />
     </>
   )
 }

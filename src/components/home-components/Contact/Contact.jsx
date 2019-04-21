@@ -3,10 +3,11 @@ import React from 'react';
 import Input from '../../miscellaneous/Input/Input';
 import './Contact.scss';
 
-function Contact() {
+function Contact(props) {
+  const { contactRef } = props;
   return (
     <>
-      <h1 className="home-section-heading">Contact</h1>
+      <h1 className="home-section-heading" ref={contactRef}>Contact</h1>
       <div className="contact-wrap">
         <div className="contact-row">
           <Input placeholder="Email Address" />

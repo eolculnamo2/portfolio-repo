@@ -2,14 +2,23 @@
 import React from 'react';
 import './Header.scss';
 
-function Header() {
+function Header(props) {
+  const {
+    homeRef,
+    aboutMeRef,
+    projectsRef,
+    contactRef,
+  } = props;
+
+  const scrollTo = reference => window.scrollTo({ top: reference.current.offsetTop-50, behavior: 'smooth' });
+
   return (
     <div className="header-wrap">
       <ul className="header-links">
-        <li>Home</li>
-        <li>About</li>
-        <li>Projects</li>
-        <li>Contact</li>
+        <li onClick={() => scrollTo(homeRef)}>Home</li>
+        <li onClick={() => scrollTo(aboutMeRef)}>About</li>
+        <li onClick={() => scrollTo(projectsRef)}>Projects</li>
+        <li onClick={() => scrollTo(contactRef)}>Contact</li>
       </ul>
     </div>
   )

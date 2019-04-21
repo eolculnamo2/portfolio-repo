@@ -1,22 +1,28 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import MeAndJack from '../../../../assets/images/meandjack.jpg';
+//import MeAndJack from '../../../../assets/dist/images/meandjack.jpg';
 import './AboutMe.scss';
 
-function AboutMe() {
+function AboutMe(props) {
+  const { aboutMeRef } = props;
   return (
     <>
-      <h1 className="home-section-heading">About</h1>
+      <h1 className="home-section-heading" ref={aboutMeRef}>About</h1>
       <div className="about-wrap">
         <img
           alt="About Rob Bertram"
           className="about-img"
-          src={MeAndJack}
+          src="/images/meandjack.jpg"
         />
         <div className="about-text-wrap">
           <h1 className="about-js-life">JavaScript === Life</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean finibus magna vel tortor porttitor ultricies. Pellentesque nunc ipsum, porta non diam et, fringilla ultricies velit. Pellentesque nisi nisi, convallis tincidunt enim nec, dictum ultrices leo. Fusce nisi lectus, suscipit at laoreet at, euismod quis metus. Nam pharetra pharetra commodo. Praesent nec orci ac ante venenatis efficitur vel vitae est. Nullam fermentum rutrum quam, eu tempor lorem dapibus at. Donec eu diam molestie, ultricies ex a, rutrum dui.
+          <p className="about-text">
+            I love programming. I started teaching myself in March of 2017 as a hobby with no thought of
+            doing it professionally. I was drawn by the way it challenged me to engage and solve hard problems -- I was completely addicted.
+            As a full time front end developer, I now get to do what I love full time.
+            At work, I strive to build web applications as cleanly and efficiently as possible. Every night, I continue
+            to work on code or code related subjects to fuel my passion for programming whether that be learning linear algebra,
+            learning C++ or Java, or just building fun MERN stack projects.
           </p>
           <h3 className="about-all-caps-h">Technologies</h3>
           <div className="about-skills-wrap">

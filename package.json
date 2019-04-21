@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "NODE_ENV=dev webpack-dev-server --progress --mode development --config webpack.config.js",
-    "server": "NODE_ENV=development nodemon server.js"
+    "server": "NODE_ENV=development nodemon server.js",
+    "production": "NODE_ENV=production node serverBuild"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -19,6 +20,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-dom-server": "0.0.5",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "webpack-dev-server": "^3.1.10"
@@ -35,8 +37,10 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "mini-css-extract-plugin": "^0.4.3",
     "node-sass": "^4.9.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
+    "terser-webpack-plugin": "^1.2.3",
     "url-loader": "^1.1.2",
     "webpack": "^4.12.1",
     "webpack-cli": "^3.0.8"
