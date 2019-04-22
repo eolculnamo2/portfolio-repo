@@ -1,13 +1,17 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-require('dotenv');
-const express = require('express');
-const app = express();
+import 'dotenv';
+import express from 'express';
+import compression from 'compression';
 import React from 'react';
 import {renderToString} from 'react-dom/server'
 import App from './src/App';
 
+const app = express();
+
+app.use(compression());
 app.use(express.static('assets/dist'));
+
 
 app.get('/', (req,res) => {
   let reactDom = renderToString(<App />);
@@ -30,7 +34,7 @@ app.get('/', (req,res) => {
     <script src="bundle.js"></script>
   </body>
   </html>`
-  return res.send(html);
+   res.send(html);
 });
 
 // eslint-disable-next-line no-console
