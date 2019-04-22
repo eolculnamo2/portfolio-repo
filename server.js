@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 require('dotenv');
 const express = require('express');
 const app = express();
@@ -10,7 +12,7 @@ app.use(express.static('assets/dist'));
 app.get('/', (req,res) => {
   let reactDom = renderToString(<App />);
   //const helmet = Helmet.renderStatic();
-  //insert with into ReactDOM string with Mongoose;
+
    const html = `
   <!DOCTYPE html>
   <html lang="en">

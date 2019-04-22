@@ -4,9 +4,7 @@ import './Footer.scss';
 
 function Footer() {
   return (
-    <div className="footer-wrap">
-
-    </div>
+    <div className="footer-wrap"></div>
   )
 }
 
