@@ -1,7 +1,12 @@
 .input-main {
   padding: .5em;
-  width: 46%;
+  width: 100%;
   margin-bottom: .5em;
   font-size: 1.15em;
   outline: none;
+  box-sizing: border-box;
+
+  @media (min-width: 940px) {
+    width: 46%;
+  }
 }

@@ -10,7 +10,6 @@ const clientConfig = {
     path: path.resolve('./assets/dist'),
     filename: 'bundle.js'
   },
-  mode: 'development',
   optimization: {
     minimizer: [
       new TerserJSPlugin({}),
@@ -96,4 +95,4 @@ const serverConfig = {
   },
 };
 
-module.exports = [clientConfig, serverConfig];
+module.exports = process.env.NODE_ENV === 'production' ?  [clientConfig, serverConfig] : clientConfig;

@@ -1,28 +1,39 @@
 .about-wrap {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  flex-wrap: wrap;
   max-width: 1200px;
   margin: auto;
   margin-top: 4em;
   margin-bottom: 7.5em;
+  padding: 0 2em;
+  flex-direction: column;
+  align-items: center;
+
+  @media(min-width: 940px) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 }
 
 .about-img {
   width: 400px;
   border: 4px solid #999;
+  max-width: 95%;
 }
 
 .about-js-life {
   text-align: center;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  margin-top: 0;
   color: #333;
+
+  @media(min-width: 940px) {
+    margin-top: 0;
+  }
 }
 
 .about-text-wrap {
   max-width: 500px;
-  margin-left: 3em;
   color: #333;
 }
 
