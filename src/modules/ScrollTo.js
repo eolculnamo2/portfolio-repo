@@ -8,21 +8,24 @@
 class ScrollTo {
   destination: Object;
   speed: number;
+  offset: number;
 
   constructor(destination: Object, speed: number) {
     this.destination = destination;
     this.speed = speed;
+
+    this.offset = 60;
     this.init();
   }
 
   init(): void {
     const start: number = performance.now();
     const destination = this.destination.current.offsetTop;
-    const isGoingUp = destination < window.pageYOffset + 65;
+    const isGoingUp = destination < window.pageYOffset + this.offset;
     const bodyHeight = document.body ? document.body.offsetHeight : null;
 
     const step = timestamp => {
-      const currentLocation = window.pageYOffset + 65;
+      const currentLocation = window.pageYOffset + this.offset;
       const progress = Math.abs(destination - currentLocation) * (.05 * this.speed) + 2;
       const threshold = isGoingUp ? destination >= currentLocation : destination <= currentLocation;
       const moveDistance = isGoingUp ? window.pageYOffset - progress : window.pageYOffset + progress;

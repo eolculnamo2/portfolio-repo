@@ -26322,6 +26322,11 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+/**
+ * @note Custom scroll to function that allows control of speed without the need for importing jQuery.
+ * @param {Object} destination
+ * @param {Number} speed
+ */
 var ScrollTo =
 /*#__PURE__*/
 function () {
@@ -26330,27 +26335,30 @@ function () {
 
     this.destination = destination;
     this.speed = speed;
-    this.main();
+    this.offset = 60;
+    this.init();
   }
 
   _createClass(ScrollTo, [{
-    key: "main",
-    value: function main() {
+    key: "init",
+    value: function init() {
       var _this = this;
 
       var start = performance.now();
-      var isGoingUp = this.destination.current.offsetTop < window.pageYOffset + 65;
+      var destination = this.destination.current.offsetTop;
+      var isGoingUp = destination < window.pageYOffset + this.offset;
+      var bodyHeight = document.body ? document.body.offsetHeight : null;
 
       var step = function step(timestamp) {
-        var progress = Math.abs(_this.destination.current.offsetTop - window.pageYOffset - 65) * (.05 * _this.speed) + 2;
-        var bodyHeight = document.body ? document.body.offsetHeight : null;
-        var threshold = isGoingUp ? _this.destination.current.offsetTop >= window.pageYOffset + 65 : _this.destination.current.offsetTop <= window.pageYOffset + 65;
+        var currentLocation = window.pageYOffset + _this.offset;
+        var progress = Math.abs(destination - currentLocation) * (.05 * _this.speed) + 2;
+        var threshold = isGoingUp ? destination >= currentLocation : destination <= currentLocation;
         var moveDistance = isGoingUp ? window.pageYOffset - progress : window.pageYOffset + progress;
         window.scrollTo({
           top: moveDistance
         });
 
-        if (!threshold && window.pageYOffset !== 0 && window.pageYOffset && window.pageYOffset + window.innerHeight < bodyHeight) {
+        if (!threshold && window.pageYOffset && window.pageYOffset + window.innerHeight < bodyHeight) {
           window.requestAnimationFrame(step);
         }
       };
