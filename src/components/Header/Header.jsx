@@ -16,6 +16,11 @@ function Header(props) {
 
   return (
     <div className="header-wrap">
+      <div className="header-hamburger-wrap">
+        <div className="header-hamburger-line" />
+        <div className="header-hamburger-line" />
+        <div className="header-hamburger-line" />
+      </div>
       <ul className="header-links">
         <li onClick={() => scrollTo(homeRef,2)}>Home</li>
         <li onClick={() => scrollTo(aboutMeRef,2)}>About</li>
