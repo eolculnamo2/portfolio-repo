@@ -1,18 +1,23 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, {useState} from 'react';
 import ScrollTo from '../../modules/ScrollTo';
 import './Header.scss';
 
 function Header(props) {
+
+  const [hState, changeState] = useState({mobileOpen: false});
+
+  const scrollTo = reference => new ScrollTo(reference, 2);
+  // window.scrollTo({ top: reference.current.offsetTop-50, behavior: 'smooth' });
+
+  const toggleHamburger = () => changeState({mobileOpen: !hState.mobileOpen});
+
   const {
     homeRef,
     aboutMeRef,
     projectsRef,
     contactRef,
   } = props;
-
-  const scrollTo = reference => new ScrollTo(reference, 2);
-  // window.scrollTo({ top: reference.current.offsetTop-50, behavior: 'smooth' });
 
   return (
     <div className="header-wrap">
