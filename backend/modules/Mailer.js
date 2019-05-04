@@ -20,8 +20,8 @@ class Mailer {
       auth: {
         type: 'OAuth2',
         user: process.env.EMAIL,
-        clientId: "547575520710-bt1ca5roqf2i4qbjs2pif1jji08ava4m.apps.googleusercontent.com",
-        clientSecret: "t45WVwmpfwWsZJV5a-4EKYta",
+        clientId: process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
        // @todo refreshToken: "REFRESH_TOKEN_HERE",
       },
     });
