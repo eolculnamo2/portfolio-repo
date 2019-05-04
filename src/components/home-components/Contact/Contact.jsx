@@ -17,9 +17,7 @@ function Contact(props: Object) {
 
   const [form, setForm] = useState(contactForm);
 
-  const handleFormInput = (key: string, value: string): void => {
-    setForm({...form, [key]: value});
-  }
+  const handleFormInput = (key: string, value: string): void => setForm({...form, [key]: value});
 
   const submitForm = (): void => {
     const { email, phone, firstName, lastName, body } = form;

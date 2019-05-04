@@ -25,7 +25,7 @@ class Mailer {
        // @todo refreshToken: "REFRESH_TOKEN_HERE",
       },
     });
-    console.log(process.env.EMAIL)
+
     // process.env and flow don't mix well: https://github.com/facebook/flow/issues/1192
     const mailOptions: MailOption = {
       // $FlowFixMe
