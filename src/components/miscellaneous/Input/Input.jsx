@@ -4,11 +4,13 @@ import PropTypes from 'prop-types';
 import './Input.scss';
 
 function Input(props) {
-  const { placeholder } = props;
+  const { handleInput, placeholder, stateKey } = props;
+
   return (
     <>
       <input
         className="input-main"
+        onInput={ () => handleInput(stateKey, event.target.value) }
         placeholder={placeholder}
       />
     </>
@@ -16,11 +18,17 @@ function Input(props) {
 }
 
 Input.defaultProps = {
+  handleInput: function() {
+    console.log('Missing required handle input function.')
+  },
   placeholder: '',
+  stateKey: '',
 };
 
 Input.propTypes = {
+  handleInput: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
+  stateKey: PropTypes.string.isRequired,
 };
 
 export default Input;
