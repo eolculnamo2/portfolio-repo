@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
-import {renderToString} from 'react-dom/server';
+import { renderToString } from 'react-dom/server';
+import { StaticRouter } from 'react-router-dom';
 import App from '../../src/App';
 import Mailer from '../modules/Mailer';
 import type { ContactForm } from '../../types/types';
@@ -9,8 +10,13 @@ class HomeService {
   /**
    * @note Sends SSR template to controller.
    */
-  static getSSRHomeView(): string {
-    const reactDom: string = renderToString(<App />);
+  static getSSRHomeView(req): string {
+    let context = {};
+    const reactDom: string = renderToString(
+      <StaticRouter context = {context} location={req.url}>
+        <App />
+      </StaticRouter>
+    );
 
     return (`
     <!DOCTYPE html>

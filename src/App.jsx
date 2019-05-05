@@ -1,9 +1,10 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import './App.scss';
-import { Home } from './pages';
+import { Switch, Route } from 'react-router-dom';
+import { Home, GitHubProjects } from './pages';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import './App.scss';
 
 // Refs created for scroll to in Header
 const homeRef = React.createRef();
@@ -20,12 +21,19 @@ function App() {
         projectsRef={projectsRef}
         contactRef={contactRef}
       />
-      <Home
-        homeRef={homeRef}
-        aboutMeRef={aboutMeRef}
-        projectsRef={projectsRef}
-        contactRef={contactRef}
+      <Switch>
+        <Route exact path="/" render={props => (
+          <Home
+            {...props}
+            homeRef={homeRef}
+            aboutMeRef={aboutMeRef}
+            projectsRef={projectsRef}
+            contactRef={contactRef}
+          />
+          )}
         />
+        <Route exact path="/github-projects" component={GitHubProjects} />
+      </Switch>
       <Footer />
     </>
   )

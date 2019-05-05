@@ -1,14 +1,14 @@
 import express from 'express';
 import HomeService from './model/HomeService';
-import { Contact } from '../src/components/home-components';
 import bodyParser from 'body-parser';
+import { ssrRoutes } from './routes';
 const router = express.Router();
 
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
 
 // GET REQUESTS
-router.get('/', (req, res) => res.send(HomeService.getSSRHomeView()) );
+router.get(ssrRoutes, (req, res) => res.send(HomeService.getSSRHomeView(req)) );
 
 
 //POST REQUESTS
