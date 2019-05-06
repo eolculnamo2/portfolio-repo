@@ -1,3 +1,3 @@
-const ssrRoutes = ['/', '/github-projects'];
+const ssrRoutes = ['/', '/github-projects', '/layers-tool'];
 
 export { ssrRoutes };

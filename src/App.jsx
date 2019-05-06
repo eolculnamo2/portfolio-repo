@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { Home, GitHubProjects } from './pages';
+import { Home, GitHubProjects, LayersTool } from './pages';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import './App.scss';
@@ -33,6 +33,7 @@ function App() {
           )}
         />
         <Route exact path="/github-projects" component={GitHubProjects} />
+        <Route exact path="/layers-tool" component={LayersTool} />
       </Switch>
       <Footer />
     </>
