@@ -1,0 +1,25 @@
+.toolbar-wrap {
+  width: 100%;
+  display: flex;
+  padding: 1em .4em;
+  margin: .5em 0;
+  background-color: white;
+  border: 2px solid #dadada;
+  box-sizing: border-box;
+}
+
+.toolbar-child {
+  margin-right: .5em;
+}
+
+.toolbar-action-btn {
+  border: 1px solid #333;
+  border-radius: 3px;
+  cursor: pointer;
+  outline: none;
+  background-color: #f7ffaa;
+
+  &:hover {
+    opacity: .8;
+  }
+}
