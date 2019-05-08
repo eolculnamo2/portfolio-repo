@@ -1,13 +1,13 @@
 import React from 'react';
-import Card from '../Layer/Card';
 import HTML5Backend from 'react-dnd-html5-backend'
+import LayerContainer from '../LayerContainer';
 import { DragDropContext } from 'react-dnd'
 import './LayersBody.scss';
 
 function LayersBody() {
   return (
     <div className="layersbody-wrap">
-      <Card/>
+      <LayerContainer/>
     </div>
   )
 }

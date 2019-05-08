@@ -1,5 +1,10 @@
+// MUCH OF THIS CODE WAS TAKEN FROM REACT-DNN WEBSITE WITH CHANGES TO MAKE
+// WORK ON MY PROJECT. https://codesandbox.io/s/8nor7j0pkl
+
 import React from 'react'
 import { DragSource } from 'react-dnd'
+import Types from '../../constants/dnd-types';
+
 const style = {
   position: 'absolute',
   border: '1px dashed gray',
@@ -7,23 +12,24 @@ const style = {
   padding: '0.5rem 1rem',
   cursor: 'move',
 }
-const Card = ({
+const Layer = ({
   hideSourceOnDrag,
   left,
   top,
+  bgColor,
   connectDragSource,
   isDragging,
   children,
 }) => {
-  if (isDragging && hideSourceOnDrag) {
+  if (isDragging /*&& hideSourceOnDrag*/) {
     return null
   }
   return connectDragSource(
-    <div style={Object.assign({}, style, { left, top })}>{children}</div>,
+    <div style={Object.assign({}, style, { left, top, backgroundColor: bgColor })}>{children}</div>,
   )
 }
 export default DragSource(
-  ItemTypes.Card,
+  Types.LAYER,
   {
     beginDrag(props) {
       const { id, left, top } = props
@@ -34,4 +40,4 @@ export default DragSource(
     connectDragSource: connect.dragSource(),
     isDragging: monitor.isDragging(),
   }),
-)(Card)
+)(Layer);
