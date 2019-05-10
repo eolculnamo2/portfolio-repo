@@ -9,7 +9,7 @@ import './LayersBody.scss';
 function LayersBody() {
   const context = useContext(LayerToolContext);
   const updateSelectedLayer = payload => context.dispatch({type: ACTION_TYPES.UPDATE_SELECTED_LAYER, payload});
-  console.log(context.state)
+
   return (
     <div className="layersbody-wrap">
       <LayerContainer selectLayer={updateSelectedLayer} />
