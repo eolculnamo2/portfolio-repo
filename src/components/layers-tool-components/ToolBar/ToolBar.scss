@@ -1,6 +1,8 @@
 .toolbar-wrap {
   width: 100%;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 1em .4em;
   margin: .5em 0;
   background-color: white;
@@ -22,4 +24,10 @@
   &:hover {
     opacity: .8;
   }
+}
+
+.toolbar-details {
+  display: flex;
+  justify-content: space-between;
+  width: 35%;
 }
