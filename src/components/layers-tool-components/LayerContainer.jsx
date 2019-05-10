@@ -1,11 +1,12 @@
-// MUCH OF THIS CODE WAS TAKEN FROM REACT-DNN WEBSITE WITH CHANGES TO MAKE
+// MUCH OF THIS CODE WAS TAKEN FROM REACT-DND WEBSITE WITH CHANGES TO MAKE
 // WORK ON MY PROJECT. https://codesandbox.io/s/8nor7j0pkl
 
-import React from 'react'
+import React, { useContext } from 'react'
 import { DropTarget } from 'react-dnd'
 import Types from '../../constants/dnd-types';
 import update from 'immutability-helper'
 import Layer from './Layer';
+
 
 const styles = {
   width: '100%',
@@ -22,23 +23,25 @@ class LayerContainer extends React.Component {
       },
     }
   }
+
   render() {
-    const { hideSourceOnDrag, connectDropTarget } = this.props
+    const { hideSourceOnDrag, connectDropTarget, selectLayer } = this.props
     const { boxes } = this.state
     return connectDropTarget(
       <div style={styles}>
         {Object.keys(boxes).map(key => {
           const { left, top, bgColor } = boxes[key]
           return (
-            <Layer
-              key={key}
-              id={key}
-              left={left}
-              top={top}
-              bgColor={bgColor}
-              hideSourceOnDrag={hideSourceOnDrag}
-            >
-            </Layer>
+            <span onClick={() => selectLayer(key)} key={key}>
+              <Layer
+                id={key}
+                left={left}
+                top={top}
+                bgColor={bgColor}
+                hideSourceOnDrag={hideSourceOnDrag}
+              >
+              </Layer>
+            </span>
           )
         })}
       </div>,
