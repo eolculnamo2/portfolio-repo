@@ -4,7 +4,8 @@ import { actions } from '../../constants/actions';
 import './LayersTool.scss';
 
 const initialLayerState= {
-  testContext: 'testing context'
+  testContext: 'testing context',
+  selectedLayer: '',
 }
 
 //https://medium.com/@AWCwebdeveloper/react-without-redux-aaad33dafbb8
