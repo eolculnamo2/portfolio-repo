@@ -3,9 +3,14 @@ import { LayersBody, ToolBar } from '../../components/layers-tool-components';
 import { actions } from '../../constants/actions';
 import './LayersTool.scss';
 
-const initialLayerState= {
-  testContext: 'testing context',
+const initialLayerState = {
   selectedLayer: '',
+  selectedLayerStats: {
+    width: '',
+    height: '',
+    fill: '',
+    border: '',
+  },
 }
 
 //https://medium.com/@AWCwebdeveloper/react-without-redux-aaad33dafbb8
