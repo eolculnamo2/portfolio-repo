@@ -21,18 +21,38 @@ class LayerContainer extends React.Component {
         a: { top: 20, left: 80, bgColor: '#4286f4' },
         b: { top: 180, left: 20, bgColor: '#4286f4' },
       },
+      refArray: [],
     }
   }
 
+  componentDidMount() {
+
+    // Get array of refs as a way to access an unknown amout of boxes.
+    // rendered in order, so assigns ref by index in render()
+    const refArray = Object.keys(this.state.boxes).map( boxName => React.createRef())
+    this.setState({ refArray });
+  }
+
+  getLayerOffsetWidth = spanElement => spanElement.current.firstChild.offsetWidth;
+
+  getLayerOffsetHeight = spanElement => spanElement.current.firstChild.offsetHeight;
+
+  getLayerBorder = spanElement => spanElement.current.firstChild.style.border;
+
   render() {
     const { hideSourceOnDrag, connectDropTarget, selectLayer } = this.props
-    const { boxes } = this.state
+    const { boxes, refArray } = this.state
     return connectDropTarget(
       <div style={styles}>
-        {Object.keys(boxes).map(key => {
+        {Object.keys(boxes).map((key,index) => {
+          const boxRef = refArray[index];
           const { left, top, bgColor } = boxes[key]
           return (
-            <span onClick={() => selectLayer(key)} key={key}>
+            <span
+              onClick={() => selectLayer(key, this.getLayerOffsetWidth(boxRef), this.getLayerOffsetHeight(boxRef), bgColor, this.getLayerBorder(boxRef))}
+              key={key}
+              ref={refArray[index]}
+            >
               <Layer
                 id={key}
                 left={left}

@@ -15,4 +15,11 @@ type ContactForm = {
   body: string,
 }
 
-export type { ContactForm, MailOption }
+type LayerStats = {
+  width: number,
+  height: number,
+  fill: string,
+  border: string,
+}
+
+export type { ContactForm, MailOption, LayerStats }

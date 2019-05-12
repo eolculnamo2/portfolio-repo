@@ -29,5 +29,14 @@
 .toolbar-details {
   display: flex;
   justify-content: space-between;
-  width: 35%;
+  width: 50%;
+}
+
+.toolbar-detail {
+  h4 {
+    margin-right: .4em;
+  }
+
+  display: flex;
+  align-items: center;
 }

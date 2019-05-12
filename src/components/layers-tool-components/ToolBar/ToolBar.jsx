@@ -5,28 +5,30 @@ import './ToolBar.scss';
 
 function ToolBar() {
   const context = useContext(LayerToolContext);
-  const { testContext } = context.state;
-
-  const updateText = () => context.dispatch({type: ACTION_TYPES.UPDATE_TEST, payload: 'testUpdated'});
+  const { width, height, fill, border } = context.state.selectedLayerStats;
 
   return (
     <div className="toolbar-wrap">
       <div>
-        <button onClick={updateText} className="toolbar-child toolbar-action-btn">Add Text</button>
+        <button className="toolbar-child toolbar-action-btn">Add Text</button>
         <button className="toolbar-child toolbar-action-btn">Add Layer</button>
       </div>
       <div className="toolbar-details">
-        <span>
-          <h4>Width</h4>
+        <span className="toolbar-detail">
+          <h4>Width: </h4>
+          <span>{width && `${width}px`}</span>
         </span>
-        <span>
-          <h4>Height</h4>
+        <span className="toolbar-detail">
+          <h4>Height: </h4>
+          <span>{height && `${height}px`}</span>
         </span>
-        <span>
-          <h4>Fill</h4>
+        <span className="toolbar-detail">
+          <h4>Fill: </h4>
+          <span>{fill}</span>
         </span>
-        <span>
-          <h4>Border</h4>
+        <span className="toolbar-detail">
+          <h4>Border: </h4>
+          <span>{border}</span>
         </span>
       </div>
     </div>
