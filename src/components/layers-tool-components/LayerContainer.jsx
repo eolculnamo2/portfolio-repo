@@ -33,7 +33,7 @@ class LayerContainer extends React.Component {
     this.setState({ refArray });
   }
 
-  getLayerOffsetWidth = spanElement => spanElement.current.firstChild.offsetWidth
+  getLayerOffsetWidth = spanElement => spanElement.current.firstChild.offsetWidth;
 
   getLayerOffsetHeight = spanElement => spanElement.current.firstChild.offsetHeight;
 
