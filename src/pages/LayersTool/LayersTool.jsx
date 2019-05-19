@@ -10,6 +10,7 @@ const initialLayerState = {
     height: '',
     fill: '',
     border: '',
+    boxRef: {},
   },
 }
 

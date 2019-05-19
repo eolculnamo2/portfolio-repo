@@ -12,13 +12,19 @@ import './LayersBody.scss';
 function LayersBody() {
   const context = useContext(LayerToolContext);
 
-  function updateSelectedLayer(name, width, height, fill, border) {
+  function selectLayer(name, boxRef, fill) {
+
+    const width = boxRef.current.firstChild.offsetWidth;
+    const height = boxRef.current.firstChild.offsetHeight;
+    const border = boxRef.current.firstChild.style.border;
+
 
     const layerStats: LayerStats = {
       height,
       width,
       fill,
       border,
+      boxRef,
     }
 
     context.dispatch({type: ACTION_TYPES.UPDATE_SELECTED_LAYER, payload: name});
@@ -27,7 +33,7 @@ function LayersBody() {
 
   return (
     <div className="layersbody-wrap">
-      <LayerContainer selectLayer={updateSelectedLayer} />
+      <LayerContainer selectLayer={selectLayer} />
     </div>
   )
 }
