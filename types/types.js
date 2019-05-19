@@ -20,6 +20,7 @@ type LayerStats = {
   height: number,
   fill: string,
   border: string,
+  boxRef: Object,
 }
 
 export type { ContactForm, MailOption, LayerStats }

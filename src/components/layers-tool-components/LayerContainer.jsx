@@ -33,12 +33,6 @@ class LayerContainer extends React.Component {
     this.setState({ refArray });
   }
 
-  getLayerOffsetWidth = spanElement => spanElement.current.firstChild.offsetWidth;
-
-  getLayerOffsetHeight = spanElement => spanElement.current.firstChild.offsetHeight;
-
-  getLayerBorder = spanElement => spanElement.current.firstChild.style.border;
-
   render() {
     const { hideSourceOnDrag, connectDropTarget, selectLayer } = this.props
     const { boxes, refArray } = this.state
@@ -49,7 +43,7 @@ class LayerContainer extends React.Component {
           const { left, top, bgColor } = boxes[key]
           return (
             <span
-              onClick={() => selectLayer(key, this.getLayerOffsetWidth(boxRef), this.getLayerOffsetHeight(boxRef), bgColor, this.getLayerBorder(boxRef))}
+              onClick={() => selectLayer(key, boxRef, bgColor)}
               key={key}
               ref={refArray[index]}
             >
@@ -58,9 +52,9 @@ class LayerContainer extends React.Component {
                 left={left}
                 top={top}
                 bgColor={bgColor}
+                layerBoxRef={boxRef}
                 hideSourceOnDrag={hideSourceOnDrag}
-              >
-              </Layer>
+              />
             </span>
           )
         })}
