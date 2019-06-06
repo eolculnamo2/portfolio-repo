@@ -39,7 +39,8 @@ const Layer = ({
     return null
   }
   return connectDragSource(
-    <div style={Object.assign({}, style, { left, top, backgroundColor: bgColor })}>{children}
+    <div style={{...style, left, top, backgroundColor: bgColor }}>
+      {children}
       <div style={innerStyle}>
         <LayerDragCircle
           location="top-right"

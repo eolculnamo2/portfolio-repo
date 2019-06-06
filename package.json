@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "NODE_ENV=development webpack-dev-server --progress --mode development --config webpack.config.js",
-    "server": "NODE_ENV=development nodemon server.js",
+    "server": "node serverBuild",
     "build": "NODE_ENV=production webpack",
     "production": "NODE_ENV=production node serverBuild",
     "flow": "flow"
