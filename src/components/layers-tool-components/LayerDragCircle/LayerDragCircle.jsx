@@ -1,11 +1,18 @@
 // @flow
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import './LayerDragCircle.scss';
 
-function LayerDragCircle(props: Object) {
+function LayerDragCircle(props: Object): JSX.Element {
+
+  const [startLeft, setStartLeft] = useState(null);
+  const [startTop, setStartTop] = useState(null);
   const { height, location } = props;
+
+  useEffect(() => {
+    console.log(startTop);
+  }, [startTop, startLeft]);
 
   function getCirclePosition(location: string): Object {
     const [verticalPos, horizontalPos] = location.split('-');
@@ -16,8 +23,15 @@ function LayerDragCircle(props: Object) {
     }
   }
 
+  const initiateDrag = (e: React.MouseEvent<HTMLElement>) => {
+    const { left, top } = e.target.getBoundingClientRect();
+    setStartLeft(left);
+    setStartTop(top);
+  };
+
   return (
     <div
+      onClick={initiateDrag}
       className="layer-drag-circle"
       style={getCirclePosition(location)}
     />
